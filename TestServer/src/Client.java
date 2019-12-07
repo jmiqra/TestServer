@@ -15,34 +15,56 @@ public class Client {
             System.err.println("Pass the server IP as the sole command line argument");
             return;
         }*/
-        Socket socket = new Socket("localhost", 8080);
+        String IP = "192.168.1.3";
+        int port = 8080;
+        Socket socket = new Socket(IP, port);
+        int filesize = 0;
         Scanner in = new Scanner(socket.getInputStream());
         System.out.println("Server response: " + in.nextLine());
-        PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-        out.println("sendFile");
+        while (true) {
 
 
 
+            Scanner systemInput = new Scanner(System.in);
+            String request = systemInput.nextLine();
 
-        //save file send by server
-        DataInputStream dis = new DataInputStream(socket.getInputStream());
-        FileOutputStream fos = new FileOutputStream("pial.png");
-        byte[] buffer = new byte[409600];
+            PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
 
-        int filesize = 1512300;
-        int read = 0;
-        int totalRead = 0;
-        int remaining = filesize;
-        while((read = dis.read(buffer, 0, Math.min(buffer.length, remaining))) > 0) {
-            totalRead += read;
-            remaining -= read;
-            System.out.println("read " + totalRead + " bytes.");
-            fos.write(buffer, 0, read);
+
+
+            out.println(request);
+            filesize = in.nextInt();
+
+            System.out.println("File size is " + filesize + " bytes");
+            if(filesize == 0) {
+
+                System.out.println("server said" + in.nextLine());
+                continue;
+            }
+            System.out.println("done");
+
+
+            //save file send by server
+            DataInputStream dis = new DataInputStream(socket.getInputStream());
+            FileOutputStream fos = new FileOutputStream(request.split(" ")[1]);
+            byte[] buffer = new byte[409600];
+
+            //filesize = 1512300000; // make dynamic
+            int read = 0;
+            int totalRead = 0;
+            int remaining = filesize;
+            while ((read = dis.read(buffer, 0, Math.min(buffer.length, remaining))) > 0) {
+                totalRead += read;
+                remaining -= read;
+                System.out.println("read " + totalRead + " bytes.");
+                fos.write(buffer, 0, read);
+            }
+
+            fos.close();
+            dis.close();
+
+
         }
-
-        fos.close();
-        dis.close();
-
 
         /*String receivedMessage = in.nextLine();
         System.out.println("Server response: " + receivedMessage);*/

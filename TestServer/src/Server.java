@@ -1,7 +1,4 @@
-import java.io.DataOutputStream;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Date;
@@ -17,32 +14,34 @@ public class Server {
     public static void main(String[] args) throws IOException {
         try (var listener = new ServerSocket(8080)) {
             System.out.println("The date server is running...");
+
             while (true) {
                 try (Socket socket = listener.accept()) {
                     PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-                    out.println("yoo bro!!!");
+                    out.println("You are connected to server...");
 
                     Scanner in = new Scanner(socket.getInputStream());
                     String receivedMessage = in.nextLine();
-                    /*System.out.println("Server response: " + receivedMessage);
-                    out.println("here is your file you dummy!!!");*/
+                    System.out.println("Client request: " + receivedMessage);
+                    String[] rcv = receivedMessage.split(" ");
 
+                    if(rcv[0].equals("fileRequest")) {
+                        File file = new File(rcv[1]);
 
+                        try {
+                            out.println(file.length());
+                            DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
+                            FileInputStream fis = new FileInputStream(rcv[1]);
+                            byte[] buffer = new byte[409600];
 
-
-                    //send file
-                    /*if(receivedMessage.equals("sendFile"))*/ {
-                        System.out.println("inside if");
-                        DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
-                        FileInputStream fis = new FileInputStream("cat.png");
-                        byte[] buffer = new byte[40000];
-
-                        while (fis.read(buffer) > 0) {
-                            dos.write(buffer);
+                            while (fis.read(buffer) > 0) {
+                                dos.write(buffer);
+                            }
+                            fis.close();
+                            dos.close();
+                        } catch (IOException e) {
+                            out.println("File not found");
                         }
-
-                        fis.close();
-                        dos.close();
                     }
                 }
             }
