@@ -1,37 +1,34 @@
+package server;
+
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.Date;
 import java.util.Scanner;
 
-/**
- * A simple TCP server. When a client connects, it sends the client the current
- * datetime, then closes the connection. This is arguably the simplest server
- * you can write. Beware though that a client has to be completely served its
- * date before the server will be able to handle another client.
- */
-public class Server {
+public class RemoteServer {
     public static void main(String[] args) throws IOException {
-        try (var listener = new ServerSocket(8080)) {
-            System.out.println("The date server is running...");
+        try (var listener = new ServerSocket(8082)) {
+            System.out.println("The Remote server is running...");
 
             while (true) {
+                System.out.println("hello from while");
                 try (Socket socket = listener.accept()) {
                     PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-                    out.println("You are connected to server...");
+                    out.println("You are connected to remote server...");
 
                     Scanner in = new Scanner(socket.getInputStream());
                     String receivedMessage = in.nextLine();
-                    System.out.println("Client request: " + receivedMessage);
+                    System.out.println("Edge server request: " + receivedMessage);
                     String[] rcv = receivedMessage.split(" ");
 
-                    if(rcv[0].equals("fileRequest")) {
-                        File file = new File(rcv[1]);
+                    if(rcv[0].equals("fr")) {
+                        File file = new File("remote/" + rcv[1]);
 
                         try {
+                            System.out.println("sending file size from remote server");
                             out.println(file.length());
                             DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
-                            FileInputStream fis = new FileInputStream(rcv[1]);
+                            FileInputStream fis = new FileInputStream("remote/" + rcv[1]);
                             byte[] buffer = new byte[409600];
 
                             while (fis.read(buffer) > 0) {
@@ -39,11 +36,13 @@ public class Server {
                             }
                             fis.close();
                             dos.close();
+                            System.out.println("sending done from remote server");
                         } catch (IOException e) {
                             out.println("File not found");
                         }
                     }
                 }
+                System.out.println("task done");
             }
         }
     }
