@@ -3,17 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="fa957f0e-0589-4217-bd98-c079d24e5042" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/a.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cat.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/iqra.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestServer/Cache/CacheHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestServer/Cache/CacheHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TestServer/edgeserver/EdgeServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestServer/edgeserver/EdgeServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TestServer/edgeserver/EdgeServerFileReceiveThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestServer/edgeserver/EdgeServerFileReceiveThread.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TestServer/server/RemoteServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestServer/server/RemoteServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/remote/iqra.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/remote/a.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/remote/f1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/remote/f2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/remote/f3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/remote/f4.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/song.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Cache/CacheHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cache/CacheHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edgeserver/EdgeServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edgeserver/EdgeServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edgeserver/EdgeServerFileReceiveThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edgeserver/EdgeServerFileReceiveThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/RemoteServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/RemoteServer.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -141,7 +141,7 @@
       <workItem from="1575775241628" duration="3872000" />
       <workItem from="1575779181419" duration="1329000" />
       <workItem from="1576245866588" duration="1796000" />
-      <workItem from="1576247718550" duration="2367000" />
+      <workItem from="1576247718550" duration="6237000" />
     </task>
     <servers />
   </component>

@@ -1,5 +1,6 @@
 package edgeserver;
 
+import Cache.CacheHandler;
 import client.FileReceiveThread;
 
 import java.io.*;
@@ -10,6 +11,8 @@ import java.util.Scanner;
 
 
 public class EdgeServer {
+
+    private static CacheHandler ch = new CacheHandler();
 
     public static void callRemoteServer(String fileName) throws IOException{
         String IP = "localhost";
@@ -55,6 +58,8 @@ public class EdgeServer {
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
+
+            ch.updateCache(fileName);
             fetchFileAfterRemoteCall(out, fileName, socket);
         }
     }
