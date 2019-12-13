@@ -30,7 +30,7 @@ public class EdgeServer {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("yyy");
+        System.out.println("successful request to remote");
     }
 
     public static void fetchFile( PrintWriter out, String fileName, Socket socket) {
@@ -39,25 +39,43 @@ public class EdgeServer {
             DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
             FileInputStream fis = new FileInputStream(fileName);
             File file = new File(fileName);
-            System.out.println("sending file size");
+            System.out.println("sending file size " + file.length());
             out.println(file.length());
-            /*DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
-            FileInputStream fis = new FileInputStream(fileName);*/
             byte[] buffer = new byte[409600];
             while (fis.read(buffer) > 0) {
                 dos.write(buffer);
             }
             fis.close();
             dos.close();
-            System.out.println("sending done");
+            System.out.println("fetch done from edge server");
         } catch (IOException e) {
+            System.out.println("file not found in edge server calling remote server");
             try {
                 callRemoteServer(fileName);
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
-            //out.println("File not found");
-            fetchFile(out, fileName, socket);
+            fetchFileAfterRemoteCall(out, fileName, socket);
+        }
+    }
+
+    private static void fetchFileAfterRemoteCall(PrintWriter out, String fileName, Socket socket) {
+        try {
+            System.out.println("filename in fetch file after remote call ------------ " + fileName);
+            DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
+            FileInputStream fis = new FileInputStream(fileName);
+            File file = new File(fileName);
+            System.out.println("sending file size----------------- " + file.length());
+            out.println(file.length());
+            byte[] buffer = new byte[409600];
+            while (fis.read(buffer) > 0) {
+                dos.write(buffer);
+            }
+            fis.close();
+            dos.close();
+            System.out.println("fetch done from remote server------------");
+        } catch (IOException e) {
+            System.out.println("file not found----------------");
         }
     }
 
@@ -65,20 +83,19 @@ public class EdgeServer {
         try (var listener = new ServerSocket(8080)) {
             System.out.println("The edge server is running...");
             while (true) {
-                System.out.println("hello from while");
+                System.out.println("Hello! from edge server");
                 try (Socket socket = listener.accept()) {
                     PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-                    out.println("You are connected to server...");
+                    out.println("You are connected to edge server...");
                     Scanner in = new Scanner(socket.getInputStream());
                     String receivedMessage = in.nextLine();
                     System.out.println("client.Client request: " + receivedMessage);
                     String[] rcv = receivedMessage.split(" ");
                     if(rcv[0].equals("fr")) {
-                        //baje recursion
                         fetchFile(out, rcv[1], socket);
                     }
                 }
-                System.out.println("task done");
+                System.out.println("File sharing done from edge server");
             }
         }
     }

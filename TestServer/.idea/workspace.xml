@@ -2,21 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fa957f0e-0589-4217-bd98-c079d24e5042" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../ClientServer/ClientServer.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/TestServer/META-INF/TestServer.kotlin_module" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/TestServer/client/Client.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/TestServer/client/FileReceiveThread.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/TestServer/edgeserver/EdgeServer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/FileReceiveThread.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/edgeserver/EdgeServerFileReceiveThread.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/server/RemoteServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TestServer/Client.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TestServer/Server.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edgeserver/EdgeServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/a.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iqra.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestServer/edgeserver/EdgeServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestServer/edgeserver/EdgeServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestServer/edgeserver/EdgeServerFileReceiveThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestServer/edgeserver/EdgeServerFileReceiveThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestServer/server/RemoteServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestServer/server/RemoteServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/remote/iqra.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/song.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edgeserver/EdgeServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edgeserver/EdgeServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edgeserver/EdgeServerFileReceiveThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edgeserver/EdgeServerFileReceiveThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/RemoteServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/RemoteServer.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -72,7 +69,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.RemoteServer">
+  <component name="RunManager" selected="Application.EdgeServer">
     <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="client.Client" />
       <module name="TestServer" />
@@ -143,6 +140,8 @@
       <workItem from="1575746544740" duration="640000" />
       <workItem from="1575775241628" duration="3872000" />
       <workItem from="1575779181419" duration="1329000" />
+      <workItem from="1576245866588" duration="1796000" />
+      <workItem from="1576247718550" duration="2367000" />
     </task>
     <servers />
   </component>

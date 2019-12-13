@@ -37,7 +37,7 @@ public class EdgeServerFileReceiveThread implements Runnable {
             System.out.println("after while");
             fos.close();
             dis.close();
-            Thread.currentThread().interrupt();
+            //Thread.currentThread().interrupt();
             return;
         }catch (Exception e) {
             e.printStackTrace();

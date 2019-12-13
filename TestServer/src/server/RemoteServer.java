@@ -11,7 +11,7 @@ public class RemoteServer {
             System.out.println("The Remote server is running...");
 
             while (true) {
-                System.out.println("hello from while");
+                System.out.println("Hello! from remote server");
                 try (Socket socket = listener.accept()) {
                     PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
                     out.println("You are connected to remote server...");
@@ -38,11 +38,11 @@ public class RemoteServer {
                             dos.close();
                             System.out.println("sending done from remote server");
                         } catch (IOException e) {
-                            out.println("File not found");
+                            out.println("File not found in remote");
                         }
                     }
                 }
-                System.out.println("task done");
+                System.out.println("File sharing done from remote server");
             }
         }
     }
